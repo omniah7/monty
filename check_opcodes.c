@@ -22,6 +22,8 @@ void check_opcode(char *cmnd, stack_t **stack, unsigned int line)
 		{"mod", op_mod},
 		{"#", op_nop},
 		{"pchar", op_pchar},
+		{"pstr", op_pstr},
+		{"rotl", op_rotl},
 		{NULL, NULL}
 	};
 

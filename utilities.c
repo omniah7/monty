@@ -44,3 +44,17 @@ int toInteger(char *s)
 		return (atoi(n) * -1);
 	return (atoi(n));
 }
+
+/**
+ * isChar - checks if an int can be converted to a char
+ * @c: the integer to be checked
+ * Return: true if it is a char. false otherwise
+ */
+bool isChar(int c)
+{
+	if (c >= 0 && c <= 127)
+	{
+		return (true);
+	}
+	return (false);
+}

@@ -76,4 +76,24 @@ void free_stack(stack_t **top)
 	}
 	/*  printf("freed stack successfully\n"); */
 }
+/**
+ * reverse - reverses a stack
+ * @top: the top of the stack
+ */
+void reverse(stack_t **top)
+{
+	stack_t *current = (*top), *tmp;
 
+	if (isEmpty(top))
+		return;
+
+	while (current)
+	{
+		tmp = current->next;
+		current->next = current->prev;
+		current->prev = tmp;
+		if (!current->next) /*if last node*/
+			(*top) = current;
+		current = current->next;
+	}
+}

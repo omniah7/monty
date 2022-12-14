@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * pint_stack_empty_err - error message
+ * stack_empty_err - error message
  * @line: the line number
  * @s: the action given
  */

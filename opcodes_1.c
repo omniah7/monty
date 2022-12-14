@@ -77,7 +77,7 @@ void op_swap(stack_t **top, unsigned int line_number)
 	}
 	tmp = (*top)->prev->prev;
 
-	(*top)->prev->next = NULL;
+	(*top)->prev->next = (*top)->next;/*NULL*/
 	(*top)->next = (*top)->prev;
 	(*top)->prev->prev = (*top);
 	(*top)->prev = tmp;
@@ -86,6 +86,11 @@ void op_swap(stack_t **top, unsigned int line_number)
 	if (tmp)
 	{
 		tmp->next = (*top);
+	}
+	/*if next elemnt after the two swaped elements is not NULL*/
+	if ((*top)->next->next)
+	{
+		(*top)->next->next->prev = (*top)->next;
 	}
 	(*top) = (*top)->next;
 }

@@ -63,6 +63,9 @@ void out_range_err(int line);
 /* check_opcodes */
 void check_opcode(char *cmnd, stack_t **stack, unsigned int line);
 
+
+
+
 /* opcodes_1 */
 void op_push(stack_t **top, unsigned int line_number);
 void op_pall(stack_t **top, unsigned int line_number);
@@ -78,16 +81,19 @@ void op_mul(stack_t **top, unsigned int line_number);
 /* opcodes_3 */
 void op_mod(stack_t **top, unsigned int line_number);
 void op_pchar(stack_t **top, unsigned int line_number);
+void op_pstr(stack_t **top, unsigned int line_number);
+void op_rotl(stack_t **top, unsigned int line_number);
 
 /* stack functions */
 void push(stack_t **top, int data);
 void pop(stack_t **top);
 bool isEmpty(stack_t **top);
 void free_stack(stack_t **top);
-
-
+void reverse(stack_t **top);
 /* utilities */
 int toInteger(char *s);
 bool isInteger(char *s);
+bool isChar(int c);
+
 
 #endif
