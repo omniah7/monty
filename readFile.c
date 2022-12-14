@@ -13,20 +13,25 @@ void readFile(FILE *fp)
 	for (l_num = 1; (read = getline(&line, &len, fp)) != EOF; l_num++)
 	{
 		cmnd = strtok(line, "\n\t\r ");
-		/*printf("line %d\n", l_num);*/
+
 		if (!cmnd)
 		{
-			/*printf("-------------------\n");*/
 			continue;
 		}
-		check_opcode(cmnd, &stack, l_num);
-		/*printf("-------------------\n");*/
+		if (!check_opcode(cmnd, &stack, l_num))
+		{
+			fclose(fp);
+			if (line)
+				free(line);
+			free_stack(&stack);
+			err_invalid_instruction(l_num, cmnd);
+		}
 	}
 	fclose(fp);
-	/*printf("file closed\n");*/
+
 	if (line)
 		free(line);
-	/*printf("line freed\n");*/
+
 	free_stack(&stack);
 	exit(EXIT_SUCCESS);
 }

@@ -4,8 +4,9 @@
  * @cmnd: the command to be executed
  * @stack: the top of a stack
  * @line: number of the line
+ * Return: true if executed, false otherwise
  */
-void check_opcode(char *cmnd, stack_t **stack, unsigned int line)
+bool check_opcode(char *cmnd, stack_t **stack, unsigned int line)
 {
 	int i;
 	instruction_t opcodes[] = {
@@ -32,9 +33,9 @@ void check_opcode(char *cmnd, stack_t **stack, unsigned int line)
 		if (strncmp(opcodes[i].opcode, cmnd, strlen(opcodes[i].opcode)) == 0)
 		{
 			opcodes[i].f(stack, line);
-			return;
+			return (true);
 		}
 	}
-	err_invalid_instruction(line, cmnd);
+	return (false);
 }
 

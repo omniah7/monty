@@ -61,7 +61,7 @@ void out_range_err(int line);
 
 
 /* check_opcodes */
-void check_opcode(char *cmnd, stack_t **stack, unsigned int line);
+bool check_opcode(char *cmnd, stack_t **stack, unsigned int line);
 
 
 
