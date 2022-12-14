@@ -2,10 +2,11 @@
 /**
  * pint_stack_empty_err - error message
  * @line: the line number
+ * @s: the action given
  */
-void pint_stack_empty_err(int line)
+void stack_empty_err(int line, char *s)
 {
-	fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+	fprintf(stderr, "L%d: can't %s, stack empty\n", line, s);
 	exit(EXIT_FAILURE);
 }
 /**
@@ -36,4 +37,12 @@ void zero_division_err(int line)
 	fprintf(stderr, "L%d: division by zero\n", line);
 	exit(EXIT_FAILURE);
 }
-
+/**
+ * out_range_err - error message
+ * @line: the line number
+ */
+void out_range_err(int line)
+{
+	fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+	exit(EXIT_FAILURE);
+}

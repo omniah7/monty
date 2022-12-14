@@ -20,6 +20,8 @@ void check_opcode(char *cmnd, stack_t **stack, unsigned int line)
 		{"div", op_div},
 		{"mul", op_mul},
 		{"mod", op_mod},
+		{"#", op_nop},
+		{"pchar", op_pchar},
 		{NULL, NULL}
 	};
 

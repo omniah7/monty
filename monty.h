@@ -51,11 +51,11 @@ void err_invalid_instruction(int line, char *opcode);
 void err_invalid_push(int line);
 void err_malloc(void);
 /* errors_2 */
-void pint_stack_empty_err(int line);
+void stack_empty_err(int line, char *s);
 void pop_stack_empty_err(int line);
 void stack_short_err(int line, char *s);
 void zero_division_err(int line);
-
+void out_range_err(int line);
 /*errors_3*/
 
 
@@ -77,7 +77,7 @@ void op_div(stack_t **top, unsigned int line_number);
 void op_mul(stack_t **top, unsigned int line_number);
 /* opcodes_3 */
 void op_mod(stack_t **top, unsigned int line_number);
-
+void op_pchar(stack_t **top, unsigned int line_number);
 
 /* stack functions */
 void push(stack_t **top, int data);

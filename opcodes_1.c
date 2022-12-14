@@ -11,11 +11,11 @@ void op_push(stack_t **top, unsigned int line_number)
 
 	argument = strtok(NULL, "\n\t\r ");
 
-	if (argument == NULL || !isdigit(argument[0]))
+	if (argument == NULL || !isInteger(argument))
 	{
 		err_invalid_push(line_number);
 	}
-	push(top, argument[0] - '0');
+	push(top, toInteger(argument));
 }
 /**
  * op_pall - prints all the values on the stack, starting from the top
@@ -44,7 +44,7 @@ void op_pint(stack_t **top, unsigned int line_number)
 {
 	if (isEmpty(top))
 	{
-		pint_stack_empty_err(line_number);
+		stack_empty_err(line_number, "pint");
 	}
 	printf("%d\n", (*top)->n);
 }
